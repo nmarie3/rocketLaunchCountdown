@@ -1,19 +1,29 @@
 h1 {
-    
-}
-
-h2 {
-    
-}
-
-ol {
-    
+    font-size: 3rem;
+    font-weight: bold;
 }
 
 h3 {
-    
+    font-size: 1.3rem;
+
 }
+
+.upcoming {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    justify-content: center;
+}
+
 
 .countdownBox {
     border: 2px solid black;
+    display: flex;
+    justify-content: space-around;
+    text-align: center;
+}
+
+
+.day, .hour, .minute, .second {
+    font-size: 2rem;
 }
