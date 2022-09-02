@@ -31,8 +31,9 @@ h3 {
     align-items: center;
     flex-direction: column;
     justify-content: center;
-    background-image: url(../images/astronaunt2.jpg);
+    background-image: url(../images/astronaunt3.jpg);
     background-size: cover;
+    width: 100%;
     background-attachment: fixed;
 }
 
@@ -50,10 +51,4 @@ h3 {
     font-size: 4rem;
     margin-bottom: -3px;
     display: flex;
-}
-
-@media all (min-width: 600px) {
-    section {
-        margin: none;
-    }
 }
