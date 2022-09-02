@@ -1,11 +1,29 @@
+body {
+    background-color: #0f131c;
+    color: white;
+}
+
+section {
+    margin-right: 50px;
+    margin-left: 50px;
+}
+
 h1 {
     font-size: 3rem;
     font-weight: bold;
+    display: flex;
+    justify-content: center;
+}
+
+h2 {
+    display: flex;
+    display: flex;
+    justify-content: center;
 }
 
 h3 {
-    font-size: 1.3rem;
-
+    font-size: 1.2rem;
+    display: flex;
 }
 
 .upcoming {
@@ -13,11 +31,15 @@ h3 {
     align-items: center;
     flex-direction: column;
     justify-content: center;
+    background-image: url(../images/astronaunt2.jpg);
+    background-size: cover;
+    background-attachment: fixed;
 }
 
 
 .countdownBox {
-    border: 2px solid black;
+    background-image: url(../images/moon.jpg);
+    background-size: cover;
     display: flex;
     justify-content: space-around;
     text-align: center;
@@ -25,5 +47,13 @@ h3 {
 
 
 .day, .hour, .minute, .second {
-    font-size: 2rem;
+    font-size: 4rem;
+    margin-bottom: -3px;
+    display: flex;
+}
+
+@media all (min-width: 600px) {
+    section {
+        margin: none;
+    }
 }

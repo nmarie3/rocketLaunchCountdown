@@ -6,6 +6,8 @@ fetch(url)
         console.log(data)
         const rocketData = new Rocket (data.result)
         rocketData.assignToElements()
+        rocketData.countdown();
+        setInterval(rocketData.countdown, 1000);
     })
     .catch(err => {
         console.log(`error ${err}`)
@@ -15,7 +17,11 @@ fetch(url)
     class Rocket {
         constructor(data) {
             data.forEach((rocketData) => {
+                if(rocketData.win_open == null) {
+                    return;
+            }else{
                 rocketData.win_open = new Date(rocketData.win_open);
+            }
             });
             this.data = data;
         }
@@ -31,15 +37,39 @@ fetch(url)
                     rocketData.pad.location.name,
                     rocketData.weather_summary,
                 ];
-                document.getElementById(`rocket${index + 1}`).innerText = properties.join("\n");
-                console.log(rocketData);
-                console.log(properties[1])
-
+                if (properties == null) {
+                    return; 
+                }else{ 
+                    document.getElementById(`rocket${index + 1}`).innerText = properties.join("\n ●  ");
+                }
             });
         }
 
+        countdown = () => {
+            const upcomingLaunch = (this.data[0].win_open).getTime();
+            const now = new Date().getTime();
+            const gap = upcomingLaunch - now;
 
+            const second = 1000;
+            const minute = second * 60;
+            const hour = minute * 60;
+            const day = hour * 24;
+
+            const textDay = Math.floor(gap / day);
+            const textHour = Math.floor((gap % day) / hour);
+            const textMinute = Math.floor((gap % hour) / minute)
+            const textSecond = Math.floor((gap % minute) / second);
+
+            document.querySelector('.day').innerText = textDay;
+            document.querySelector('.hour').innerText = textHour;
+            document.querySelector('.minute').innerText = textMinute;
+            document.querySelector('.second').innerText = textSecond;
+        };
+        
     }
+
+
+
 
     // class rocketDate extends Rocket {
     //     constructor(data) {
