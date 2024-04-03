@@ -17,10 +17,10 @@ fetch(url)
     class Rocket {
         constructor(data) {
             data.forEach((rocketData) => {
-                if(rocketData.win_open == null) {
+                if(rocketData.t0 == null) {
                     return;
             }else{
-                rocketData.win_open = new Date(rocketData.win_open);
+                rocketData.t0 = new Date(rocketData.t0);
             }
             });
             this.data = data;
@@ -30,7 +30,7 @@ fetch(url)
             this.data.forEach((rocketData, index) => {
                 const properties = [
                     rocketData.name,
-                    rocketData.win_open,
+                    rocketData.t0,
                     rocketData.mission_description,
                     rocketData.launch_description,
                     rocketData.provider.name,
@@ -46,7 +46,7 @@ fetch(url)
         }
 
         countdown = () => {
-            const upcomingLaunch = (this.data[0].win_open).getTime();
+            const upcomingLaunch = (this.data[0].t0).getTime();
             const now = new Date().getTime();
             const gap = upcomingLaunch - now;
 
